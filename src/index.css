@@ -29,7 +29,7 @@ a:hover{
     color: #ff8000;
 }
 
-.header{
+.header{w
     grid-area: header;
     background-color: #203040;
     color: #ffffff;
