@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import data from './Data/Data'
-import img from './Data/images/dress1.jpg'
-import formatCurrency from './util';
+import formatCurrency from '../util'
 
-var listOfImages = [];
+
 
 
 export default class Products extends Component {
@@ -16,7 +14,7 @@ export default class Products extends Component {
                         <li key={product._id}>
                             <div className="product">
                                 <a href={"#" + product._id}>
-                                    <img src={img} />
+                                    <img src={product.image} />
                                     <p> {product.title}</p>
                                 </a>
                                 <div className="product-price">
