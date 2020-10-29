@@ -3,6 +3,8 @@ import {
     REMOVE_FROM_CART
 } from '../../Redux/types';
 
+import store from '../store'
+
 export const addToCart = (product) => (dispatch, getState) => {
     const cartItems = getState().cart.cartItems.slice();
     let alreadyExists = false;
@@ -23,10 +25,10 @@ export const addToCart = (product) => (dispatch, getState) => {
         payload: { cartItems }
     })
     localStorage.setItem("cartItems", JSON.stringify(cartItems))
-}
+};
 
 export const removeFromCart = (product) => (dispatch, getState) => {
-    const cartItems = getState().cart.cartItems.slice().filter(
+    const cartItems = store.getState().cart.cartItems.slice().filter(
         item => item._id !== product._id
     )
     dispatch({
