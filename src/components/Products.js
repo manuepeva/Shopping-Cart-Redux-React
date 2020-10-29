@@ -7,11 +7,11 @@ import util from '../util'
 // import { connect } from 'mongoose'
 import { connect } from 'react-redux'
 import { fetchProducts } from './Redux/Actions/productActions'
-
+import { addToCart } from '../components/Redux/Actions/cartActions'
 
 class Products extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             product: null,
         }
@@ -41,7 +41,8 @@ class Products extends Component {
                                     <li key={product._id}>
                                         <div className="product">
                                             <a href={"#" + product._id} onClick={() => this.openModal(product)}>
-                                                <img src={product.image} />
+                                                <img src={product.image}
+                                                    alt={product.title} />
                                                 <p> {product.title}</p>
                                             </a>
                                             <div className="product-price">
@@ -110,6 +111,11 @@ class Products extends Component {
     }
 }
 
-export default connect((state) => ({ products: state.products.filteredItems }),
-    { fetchProducts })
+export default connect((state) => ({
+    products: state.products.filteredItems
+}),
+    {
+        fetchProducts,
+        addToCart,
+    })
     (Products);
