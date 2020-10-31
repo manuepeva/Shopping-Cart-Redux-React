@@ -28,7 +28,8 @@ export const addToCart = (product) => (dispatch, getState) => {
 };
 
 export const removeFromCart = (product) => (dispatch, getState) => {
-    const cartItems = store.getState().cart.cartItems.slice().filter(
+    let reduxVar = store.getState();
+    const cartItems = reduxVar.cart.cartItems.slice().filter(
         item => item._id !== product._id
     )
     dispatch({

@@ -22,12 +22,15 @@ class App extends React.Component {
           <main>
             <div className="content">
               <div className="main">
-                <Filter />
+                <Filter
+
+                />
                 <Products
                 />
               </div>
               <div className="sidebar">
                 <Cart
+
                 />
               </div>
 
